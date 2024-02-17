@@ -42,8 +42,7 @@ export class UserService {
     await createUser.save();
 
     const payload = {
-      email: createUser.email,
-      sub: createUser.id,
+      id: createUser.id,
     };
 
     return {

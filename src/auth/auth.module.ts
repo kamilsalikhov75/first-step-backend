@@ -8,6 +8,7 @@ import { jwtConstants } from 'src/strategy/constants';
 import { UserService } from 'src/users/user.service';
 import { HashService } from 'src/users/hash.service';
 import { LocalStrategy } from 'src/strategy/local.strategy';
+import { PassportModule } from '@nestjs/passport';
 
 @Module({
   imports: [
@@ -23,8 +24,9 @@ import { LocalStrategy } from 'src/strategy/local.strategy';
         expiresIn: '60d',
       },
     }),
+    PassportModule,
   ],
   controllers: [AuthController],
-  providers: [AuthService, UserService, LocalStrategy, HashService],
+  providers: [AuthService, UserService, HashService, LocalStrategy],
 })
 export class AuthModule {}
