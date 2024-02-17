@@ -3,10 +3,7 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  app.enableCors({
-    origin: ['https://first-step-seven.vercel.app'],
-    methods: ['GET', 'POST'],
-  });
+  app.enableCors({ origin: true });
   await app.listen(3000);
 }
 bootstrap();
